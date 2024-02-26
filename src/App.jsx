@@ -1,37 +1,38 @@
-import NextUITabs from "./components/Tabs";
-import teams from "./teams.json";
+import TestInputs from './TestInputs';
+import NextUITabs from './components/Tabs';
+import teams from './teams.json';
 
 function App() {
   const tabsData = {
     division: {
       columns: [
-        { id: 1, name: "Division" },
-        { id: 2, name: "Wins" },
-        { id: 3, name: "Losses" },
-        { id: 4, name: "PCT" },
-        { id: 5, name: "GB" },
+        { id: 1, name: 'Division' },
+        { id: 2, name: 'Wins' },
+        { id: 3, name: 'Losses' },
+        { id: 4, name: 'PCT' },
+        { id: 5, name: 'GB' },
       ],
       rows: teams,
     },
 
     league: {
       columns: [
-        { id: 1, name: "" },
-        { id: 2, name: "Wins" },
-        { id: 3, name: "Losses" },
-        { id: 4, name: "PCT" },
-        { id: 5, name: "GB" },
+        { id: 1, name: '' },
+        { id: 2, name: 'Wins' },
+        { id: 3, name: 'Losses' },
+        { id: 4, name: 'PCT' },
+        { id: 5, name: 'GB' },
       ],
       rows: teams,
     },
 
     overall: {
       columns: [
-        { id: 1, name: "" },
-        { id: 2, name: "Wins" },
-        { id: 3, name: "Losses" },
-        { id: 4, name: "PCT" },
-        { id: 5, name: "GB" },
+        { id: 1, name: '' },
+        { id: 2, name: 'Wins' },
+        { id: 3, name: 'Losses' },
+        { id: 4, name: 'PCT' },
+        { id: 5, name: 'GB' },
       ],
       rows: teams,
     },
