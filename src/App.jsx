@@ -5,40 +5,46 @@ function App() {
   const tabsData = {
     division: {
       columns: [
-        { id: 1, name: "Division" },
-        { id: 2, name: "Wins" },
-        { id: 3, name: "Losses" },
-        { id: 4, name: "PCT" },
-        { id: 5, name: "GB" },
+        { name: "Team", uid: "name" },
+        { name: "Wins", uid: "custom" },
+        { name: "Losses", uid: "losses" },
+        { name: "PCT", uid: "pct" },
+        { name: "GB", uid: "gb" },
       ],
       rows: teams,
     },
 
     league: {
       columns: [
-        { id: 1, name: "" },
-        { id: 2, name: "Wins" },
-        { id: 3, name: "Losses" },
-        { id: 4, name: "PCT" },
-        { id: 5, name: "GB" },
+        { name: "Team", uid: "name" },
+        { name: "Wins", uid: "custom" },
+        { name: "Losses", uid: "losses" },
+        { name: "PCT", uid: "pct" },
+        { name: "GB", uid: "gb" },
       ],
       rows: teams,
     },
 
     overall: {
       columns: [
-        { id: 1, name: "" },
-        { id: 2, name: "Wins" },
-        { id: 3, name: "Losses" },
-        { id: 4, name: "PCT" },
-        { id: 5, name: "GB" },
+        { name: "Team", uid: "name" },
+        { name: "Wins", uid: "custom" },
+        { name: "Losses", uid: "losses" },
+        { name: "PCT", uid: "pct" },
+        { name: "GB", uid: "gb" },
       ],
-      rows: teams,
+      rows: teams.map((team) => ({
+        ...team,
+        wins: 0,
+        losses: 100,
+        pct: 5.55,
+        gb: 20.5,
+      })),
     },
   };
 
   return (
-    <div className="h-screen bg-gray-900 py-8 px-12">
+    <div className="bg-gray-900 flex flex-col items-center h-screen py-8 px-12">
       <h2 className="text-4xl text-slate-200 font-bold sm:text-5xl mb-6">
         MLB Standings
       </h2>

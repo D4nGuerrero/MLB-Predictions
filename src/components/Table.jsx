@@ -1,35 +1,81 @@
-import { Fragment } from "react";
+import { useCallback } from "react";
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
+  User,
+  Input,
+} from "@nextui-org/react";
 
-export default function NextUITable({ columns, rows, tabKey }) {
-  console.log(tabKey);
+export default function NextUITable({ columns, rows }) {
+  const renderCell = useCallback((user, columnKey) => {
+    const cellValue = user[columnKey];
+
+    switch (columnKey) {
+      case "name":
+        return (
+          <User
+            avatarProps={{
+              radius: "lg",
+              src: user.logo,
+              classNames: {
+                base: "bg-slate-200 p-1.5",
+              },
+              size: "lg",
+            }}
+            description={user.displayName}
+            name={cellValue}
+            classNames={{
+              name: "text-white text-medium font-bold pl-2",
+              description: "text-slate-200 text-sm pl-2",
+            }}
+          />
+        );
+
+      case "custom":
+        return (
+          <Input
+            variant="bordered"
+            type="text"
+            classNames={{
+              inputWrapper: "bg-gray-700",
+              input: "text-white font-bold text-medium text-center",
+            }}
+            defaultValue="0"
+          />
+        );
+      default:
+        return cellValue;
+    }
+  }, []);
+
   return (
-    <div className="flow-root">
-      <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-          <table className="min-w-full">
-            <thead className="bg-gray-900">
-              <tr>
-                {columns.map((column) => (
-                  <th
-                    key={column.id}
-                    scope="col"
-                    className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-200 sm:pl-3"
-                  >
-                    {column.name}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="bg-gray-900">
-              {rows.map((location, index) => (
-                <Fragment key={index}>
-                  <tr className="border-t border-gray-200"></tr>
-                </Fragment>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+    <Table
+      aria-label="Table with custom cells"
+      isHeaderSticky
+      className="dark"
+      classNames={{
+        base: "py-0 mb-3 max-h-[665px] mt-3 w-full",
+        th: "text-white font-bold text-medium bg-gray-700 px-6",
+        td: "text-white w-1/5 px-6",
+        wrapper: "bg-gray-800",
+      }}
+    >
+      <TableHeader columns={columns}>
+        {(column) => <TableColumn key={column.uid}>{column.name}</TableColumn>}
+      </TableHeader>
+      <TableBody items={rows} emptyContent={"No data found"}>
+        {(item) => (
+          <TableRow key={item.name}>
+            {(columnKey) => (
+              <TableCell>{renderCell(item, columnKey)}</TableCell>
+            )}
+          </TableRow>
+        )}
+      </TableBody>
+    </Table>
   );
 }
