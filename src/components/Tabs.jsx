@@ -13,7 +13,9 @@ export default function NextUITabs({ data }) {
       radius="lg"
       color="primary"
       classNames={{
-        tabContent: "text-medium",
+        tabContent: "text-medium text-white",
+        tabList: "bg-gray-800",
+        tab: "px-4",
       }}
     >
       <Tab key="division" title="Division">

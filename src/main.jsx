@@ -6,9 +6,7 @@ import { NextUIProvider } from '@nextui-org/react';
 import TestInputs from './TestInputs.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <NextUIProvider>
-      <TestInputs />
-    </NextUIProvider>
-  </React.StrictMode>
+  <NextUIProvider>
+    <App />
+  </NextUIProvider>
 );
