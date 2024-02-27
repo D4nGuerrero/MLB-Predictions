@@ -1,7 +1,7 @@
 import React from 'react';
 // import json
 import teams2 from './teams.json';
-import { parse } from 'postcss';
+import TableTeams from './TableTeams';
 
 function TestInputs(props) {
   const [teams, setTeams] = React.useState(teams2);
@@ -14,91 +14,103 @@ function TestInputs(props) {
     return acc + team.wins;
   }, 0);
 
-  // 162 games in a season
-  // 30 teams / 2
-  //   let winsAvailable = 162 * 15 - totalWins;
-
   const gamesPerTeam = 162;
-  const teamsPerLeague = 15;
-  const totalGames = gamesPerTeam * teamsPerLeague;
+  // Total teams / 2 * games per team
+  const totalGames = gamesPerTeam * 15;
 
   let winsAvailable = totalGames - totalWins;
+
+  function handleInputChange(value, team) {
+    console.log('aver', value, team);
+    //TODO: Validations
+    // 1. Don't allow more than 1 zero in input
+    // 2. The default is 0, when selecting the input, it should be empty
+
+    // 3. account for empty string
+
+    winsAvailable += team.wins;
+
+    let winsValue =
+      value > winsAvailable || value > gamesPerTeam
+        ? Math.min(winsAvailable, gamesPerTeam)
+        : parseInt(value);
+
+    setTeams(
+      teams.map((t) => {
+        if (t.name === team.name) {
+          return {
+            ...t,
+            wins: winsValue,
+            losses: gamesPerTeam - winsValue,
+          };
+        }
+        return t;
+      })
+    );
+  }
+
+  const organizedData = {
+    AL: {
+      East: [],
+      Central: [],
+      West: [],
+    },
+    NL: {
+      East: [],
+      Central: [],
+      West: [],
+    },
+  };
+
+  console.log(Object.entries(organizedData));
+
+  teamsByWins.forEach((team) => {
+    organizedData[team.league][team.division].push(team);
+  });
+
+  //  AL and NL 2 leagues
+  const twoLeagues = {
+    AL: [],
+    NL: [],
+  };
+
+  teamsByWins.forEach((team) => {
+    twoLeagues[team.league].push(team);
+  });
 
   return (
     <div className="bg-stone-900 h-full text-slate-50">
       Wins Available: {winsAvailable}
-      <div className="flex justify-center">
-        <table className="table-auto">
-          <thead>
-            <tr>
-              {/* image */}
-              <th className="px-4 py-2">Logo</th>
-              <th className="px-4 py-2">Team</th>
-              <th className="px-4 py-2">Wins</th>
-              <th className="px-4 py-2">Losses</th>
-              <th className="px-4 py-2">PCT</th>
-              <th className="px-4 py-2">GB</th>
-            </tr>
-          </thead>
-          <tbody>
-            {teamsByWins.map((team) => {
-              return (
-                <tr key={team.name}>
-                  <td className="bg-sky-900 border px-4 py-2">
-                    <img
-                      src={team.logo}
-                      alt={team.name}
-                      width="50"
-                      height="50"
+      <div className="flex justify-center h-screen">
+        {/* <TableTeams teams={teamsByWins} onInputChange={handleInputChange} /> */}
+
+        {/* {Object.entries(organizedData).map(([league, divisions]) => {
+          return (
+            <div key={league} className="flex flex-col items-center">
+              <h2 className="text-2xl font-bold">{league}</h2>
+              {Object.entries(divisions).map(([division, teams]) => {
+                return (
+                  <div key={division} className="flex flex-col items-center">
+                    <h3 className="text-xl font-bold">{division}</h3>
+                    <TableTeams
+                      teams={teams}
+                      onInputChange={handleInputChange}
                     />
-                  </td>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })} */}
 
-                  <td className="border px-4 py-2">{team.name}</td>
-                  <td className="border px-4 py-2">
-                    <input
-                      className="bg-stone-900 text-slate-50"
-                      type="number"
-                      max={162}
-                      onChange={({ target: { value } }) => {
-                        //TODO: Validations
-                        // 1. Don't allow more than 1 zero in input
-                        // 2. The default is 0, when selecting the input, it should be empty
-
-                        // 3. account for empty string
-
-                        winsAvailable += team.wins;
-
-                        let winsValue =
-                          value > winsAvailable || value > gamesPerTeam
-                            ? Math.min(winsAvailable, gamesPerTeam)
-                            : parseInt(value);
-
-                        setTeams(
-                          teams.map((t) => {
-                            if (t.name === team.name) {
-                              return {
-                                ...t,
-                                wins: winsValue,
-                                losses: gamesPerTeam - winsValue,
-                              };
-                            }
-                            return t;
-                          })
-                        );
-                      }}
-                      value={team.wins}
-                    />
-                  </td>
-                  <td className="border px-4 py-2">{team.losses}</td>
-                  <td className="border px-4 py-2">
-                    {(team.wins / gamesPerTeam).toFixed(3)}
-                  </td>
-                  <td className="border px-4 py-2">{team.gb}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        {Object.entries(twoLeagues).map(([league, teams]) => {
+          return (
+            <div key={league} className="flex flex-col items-center">
+              <h2 className="text-2xl font-bold">{league}</h2>
+              <TableTeams teams={teams} onInputChange={handleInputChange} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );

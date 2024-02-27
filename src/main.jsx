@@ -7,6 +7,6 @@ import TestInputs from './TestInputs.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <NextUIProvider>
-    <App />
+    <TestInputs />
   </NextUIProvider>
 );
