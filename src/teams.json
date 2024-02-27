@@ -6,9 +6,7 @@
     "division": "West",
     "league": "NL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Atlanta Braves",
@@ -17,9 +15,7 @@
     "division": "East",
     "league": "NL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Baltimore Orioles",
@@ -28,9 +24,7 @@
     "division": "East",
     "league": "AL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Boston Red Sox",
@@ -39,9 +33,7 @@
     "division": "East",
     "league": "AL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Chicago Cubs",
@@ -50,9 +42,7 @@
     "division": "Central",
     "league": "NL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Chicago White Sox",
@@ -61,9 +51,7 @@
     "division": "Central",
     "league": "AL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Cincinnati Reds",
@@ -72,9 +60,7 @@
     "division": "Central",
     "league": "NL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Cleveland Guardians",
@@ -83,9 +69,7 @@
     "division": "Central",
     "league": "AL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Colorado Rockies",
@@ -94,9 +78,7 @@
     "division": "West",
     "league": "NL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Detroit Tigers",
@@ -105,9 +87,7 @@
     "division": "Central",
     "league": "AL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Houston Astros",
@@ -116,9 +96,7 @@
     "division": "West",
     "league": "AL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Kansas City Royals",
@@ -127,9 +105,7 @@
     "division": "Central",
     "league": "AL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Los Angeles Angels",
@@ -138,9 +114,7 @@
     "division": "West",
     "league": "AL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Los Angeles Dodgers",
@@ -149,9 +123,7 @@
     "division": "West",
     "league": "NL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Miami Marlins",
@@ -160,9 +132,7 @@
     "division": "East",
     "league": "NL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Milwaukee Brewers",
@@ -171,9 +141,7 @@
     "division": "Central",
     "league": "NL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Minnesota Twins",
@@ -182,9 +150,7 @@
     "division": "Central",
     "league": "AL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "New York Mets",
@@ -193,9 +159,7 @@
     "division": "East",
     "league": "NL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "New York Yankees",
@@ -204,9 +168,7 @@
     "division": "East",
     "league": "AL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Oakland Athletics",
@@ -215,9 +177,7 @@
     "division": "West",
     "league": "AL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Philadelphia Phillies",
@@ -226,9 +186,7 @@
     "division": "East",
     "league": "NL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Pittsburgh Pirates",
@@ -237,9 +195,7 @@
     "division": "Central",
     "league": "NL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "San Diego Padres",
@@ -248,9 +204,7 @@
     "division": "West",
     "league": "NL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "San Francisco Giants",
@@ -259,9 +213,7 @@
     "division": "West",
     "league": "NL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Seattle Mariners",
@@ -270,9 +222,7 @@
     "division": "West",
     "league": "AL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "St. Louis Cardinals",
@@ -281,9 +231,7 @@
     "division": "Central",
     "league": "NL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Tampa Bay Rays",
@@ -292,9 +240,7 @@
     "division": "East",
     "league": "AL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Texas Rangers",
@@ -303,9 +249,7 @@
     "division": "West",
     "league": "AL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Toronto Blue Jays",
@@ -314,9 +258,7 @@
     "division": "East",
     "league": "AL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   },
   {
     "displayName": "Washington Nationals",
@@ -325,8 +267,6 @@
     "division": "East",
     "league": "NL",
     "wins": 0,
-    "losses": 0,
-    "pct": "0.000",
-    "gb": "0.0"
+    "losses": 0
   }
 ]
