@@ -1,46 +1,39 @@
-import TestInputs from './TestInputs';
-import NextUITabs from './components/Tabs';
-import teams from './teams.json';
+import NextUITabs from "./components/Tabs";
+import teams from "./teams.json";
 
 function App() {
   const tabsData = {
     division: {
       columns: [
-        { name: 'Team', uid: 'name' },
-        { name: 'Wins', uid: 'custom' },
-        { name: 'Losses', uid: 'losses' },
-        { name: 'PCT', uid: 'pct' },
-        { name: 'GB', uid: 'gb' },
+        { name: "Team", uid: "name" },
+        { name: "Wins", uid: "custom" },
+        { name: "Losses", uid: "losses" },
+        { name: "PCT", uid: "pct" },
+        { name: "GB", uid: "gb" },
       ],
       rows: teams,
     },
 
     league: {
       columns: [
-        { name: 'Team', uid: 'name' },
-        { name: 'Wins', uid: 'custom' },
-        { name: 'Losses', uid: 'losses' },
-        { name: 'PCT', uid: 'pct' },
-        { name: 'GB', uid: 'gb' },
+        { name: "Team", uid: "name" },
+        { name: "Wins", uid: "custom" },
+        { name: "Losses", uid: "losses" },
+        { name: "PCT", uid: "pct" },
+        { name: "GB", uid: "gb" },
       ],
       rows: teams,
     },
 
     overall: {
       columns: [
-        { name: 'Team', uid: 'name' },
-        { name: 'Wins', uid: 'custom' },
-        { name: 'Losses', uid: 'losses' },
-        { name: 'PCT', uid: 'pct' },
-        { name: 'GB', uid: 'gb' },
+        { name: "Team", uid: "name" },
+        { name: "Wins", uid: "custom" },
+        { name: "Losses", uid: "losses" },
+        { name: "PCT", uid: "pct" },
+        { name: "GB", uid: "gb" },
       ],
-      rows: teams.map((team) => ({
-        ...team,
-        wins: 0,
-        losses: 100,
-        pct: 5.55,
-        gb: 20.5,
-      })),
+      rows: teams,
     },
   };
 
