@@ -1,46 +1,100 @@
-import { Tabs, Tab } from "@nextui-org/react";
-import { useState } from "react";
-import NextUITable from "./Table";
+import { Tabs as NextUITabs, Tab } from '@nextui-org/react';
+import { useState } from 'react';
+import StandingsTable from './StandingsTable';
+import teams2 from '../teams.json';
 
-export default function NextUITabs({ data }) {
-  const [selected, setSelected] = useState("division");
+export default function Tabs() {
+  const [selected, setSelected] = useState('divisions');
+  const [teams, setTeams] = useState(teams2);
 
-  const NationalLeagueTeams = data.league.rows.filter(
-    (team) => team.league === "NL"
-  );
-  const AmericanLeagueTeams = data.league.rows.filter(
-    (team) => team.league === "AL"
-  );
+  const columns = [
+    { name: 'Team', uid: 'name' },
+    { name: 'Wins', uid: 'custom' },
+    { name: 'Losses', uid: 'losses' },
+    { name: 'PCT', uid: 'pct' },
+    { name: 'GB', uid: 'gb' },
+  ];
 
-  const divisionFilter = (teams, division) =>
-    teams.filter((team) => team.division === division);
+  const divisions = {
+    AL: {
+      title: 'American League',
+      divisions: {
+        East: [],
+        Central: [],
+        West: [],
+      },
+    },
+    NL: {
+      title: 'National League',
+      divisions: {
+        East: [],
+        Central: [],
+        West: [],
+      },
+    },
+  };
 
-  const renderTableForDivision = (title, teams) => (
-    <>
-      <h1 className="text-slate-200 font-bold text-2xl lg:text-3xl text-center">
-        {title}
-      </h1>
-      <NextUITable
-        columns={data.division.columns}
-        rows={teams}
-        tabKey={"division"}
-      />
-    </>
-  );
+  const leagues = {
+    AL: {
+      title: 'American League',
+      teams: [],
+    },
+    NL: {
+      title: 'National League',
+      teams: [],
+    },
+  };
+  const teamsByWins = [...teams].sort((a, b) => {
+    return b.wins - a.wins;
+  });
 
-  const renderLeagueTable = (title, teams) => (
-    <div className="w-full">
-      <h1 className="text-slate-200 font-bold text-3xl text-center">{title}</h1>
-      <NextUITable
-        columns={data.league.columns}
-        rows={teams}
-        tabKey={"league"}
-      />
-    </div>
-  );
+  teamsByWins.forEach((team) => {
+    divisions[team.league].divisions[team.division].push(team);
+    leagues[team.league].teams.push(team);
+  });
+
+  const totalWins = teams.reduce((acc, team) => {
+    return acc + team.wins;
+  }, 0);
+
+  const gamesPerTeam = 162;
+
+  const totalGames = gamesPerTeam * 15;
+  let winsAvailable = totalGames - totalWins;
+
+  console.log('hmm', winsAvailable);
+
+  function handleInputChange(value, team) {
+    // console.log('aver', value, team);
+    //TODO: Validations
+    // 1. Don't allow more than 1 zero in input
+    // 2. The default is 0, when selecting the input, it should be empty
+    // 3. account for empty string
+
+    winsAvailable += team.wins;
+    console.log('hmm2', winsAvailable);
+
+    let winsValue =
+      value > winsAvailable || value > gamesPerTeam
+        ? Math.min(winsAvailable, gamesPerTeam)
+        : parseInt(value);
+
+    setTeams(
+      teams.map((t) => {
+        if (t.name === team.name) {
+          return {
+            ...t,
+            wins: winsValue,
+            losses: gamesPerTeam - winsValue,
+          };
+        }
+        return t;
+      })
+    );
+  }
 
   return (
-    <Tabs
+    <NextUITabs
       aria-label="Options"
       selectedKey={selected}
       onSelectionChange={setSelected}
@@ -48,59 +102,60 @@ export default function NextUITabs({ data }) {
       color="primary"
       className="flex justify-center"
       classNames={{
-        tabContent: "text-medium text-white",
-        tabList: "bg-gray-800",
-        tab: "px-4",
+        tabContent: 'text-medium text-white',
+        tabList: 'bg-gray-800',
+        tab: 'px-4',
       }}
     >
       <Tab key="division" title="Division">
         <div className="responsive-grid-container mt-2">
-          <section>
-            {renderTableForDivision(
-              "National League East",
-              divisionFilter(NationalLeagueTeams, "East")
-            )}
-            {renderTableForDivision(
-              "National League Central",
-              divisionFilter(NationalLeagueTeams, "Central")
-            )}
-            {renderTableForDivision(
-              "National League West",
-              divisionFilter(NationalLeagueTeams, "West")
-            )}
-          </section>
-
-          <section>
-            {renderTableForDivision(
-              "American League East",
-              divisionFilter(AmericanLeagueTeams, "East")
-            )}
-            {renderTableForDivision(
-              "American League Central",
-              divisionFilter(AmericanLeagueTeams, "Central")
-            )}
-            {renderTableForDivision(
-              "American League West",
-              divisionFilter(AmericanLeagueTeams, "West")
-            )}
-          </section>
+          {Object.entries(divisions).map(([league, data]) => (
+            <section key={league}>
+              <h1 className="text-slate-200 font-bold text-3xl text-center">
+                {data.title}
+              </h1>
+              {Object.entries(data.divisions).map(([division, teams]) => (
+                <div key={division}>
+                  <h2 className="text-slate-200 font-bold text-2xl text-center">
+                    {division}
+                  </h2>
+                  <StandingsTable
+                    columns={columns}
+                    rows={teams}
+                    tabKey={'division'}
+                    onInputChange={handleInputChange}
+                  />
+                </div>
+              ))}
+            </section>
+          ))}
         </div>
       </Tab>
-
       <Tab key="league" title="League">
         <div className="responsive-grid-container">
-          {renderLeagueTable("American League", AmericanLeagueTeams)}
-          {renderLeagueTable("National League", NationalLeagueTeams)}
+          {Object.entries(leagues).map(([league, data]) => (
+            <section key={league} className="w-full">
+              <h1 className="text-slate-200 font-bold text-3xl text-center">
+                {data.title}
+              </h1>
+              <StandingsTable
+                columns={columns}
+                rows={data.teams}
+                tabKey={'league'}
+                onInputChange={handleInputChange}
+              />
+            </section>
+          ))}
         </div>
       </Tab>
-
       <Tab key="overall" title="Overall">
-        <NextUITable
-          columns={data.overall.columns}
-          rows={data.overall.rows}
-          tabKey={"overall"}
+        <StandingsTable
+          columns={columns}
+          rows={teamsByWins}
+          tabKey={'overall'}
+          onInputChange={handleInputChange}
         />
       </Tab>
-    </Tabs>
+    </NextUITabs>
   );
 }

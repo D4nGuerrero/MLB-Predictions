@@ -62,8 +62,6 @@ function TestInputs(props) {
     },
   };
 
-  console.log(Object.entries(organizedData));
-
   teamsByWins.forEach((team) => {
     organizedData[team.league][team.division].push(team);
   });
