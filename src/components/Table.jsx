@@ -6,33 +6,27 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  User,
   Input,
 } from '@nextui-org/react';
 
-export default function NextUITable({ columns, rows }) {
+export default function NextUITable({ columns, rows, tabKey }) {
   const renderCell = useCallback((user, columnKey) => {
     const cellValue = user[columnKey];
 
     switch (columnKey) {
       case 'name':
         return (
-          <User
-            avatarProps={{
-              radius: 'lg',
-              src: user.logo,
-              classNames: {
-                base: 'bg-slate-200 p-1.5',
-              },
-              size: 'lg',
-            }}
-            description={user.displayName}
-            name={cellValue}
-            classNames={{
-              name: 'text-white text-medium font-bold pl-2',
-              description: 'text-slate-200 text-sm pl-2',
-            }}
-          />
+          <div className="flex w-[220px] mt-2">
+            <img
+              src={user.logo}
+              alt={user.displayName}
+              className="h-11 w-11 rounded-lg bg-slate-200 p-1"
+            />
+            <div className="ml-4">
+              <p className="text-white text-medium font-bold">{cellValue}</p>
+              <p className="text-slate-200 text-sm">{user.displayName}</p>
+            </div>
+          </div>
         );
 
       case 'custom':
@@ -56,12 +50,14 @@ export default function NextUITable({ columns, rows }) {
     <Table
       aria-label="Table with custom cells"
       isHeaderSticky
-      className="dark"
+      className={`dark bg-gray-800 mx-auto rounded-full max-w-[800px]`}
       classNames={{
-        base: 'py-0 mb-3 max-h-[665px] mt-3 w-full',
+        base: `py-0 mb-3 mt-3 ${
+          tabKey === 'league' ? 'max-h-[651px]' : 'max-h-[687px]'
+        }`,
         th: 'text-white font-bold text-medium bg-gray-700 px-6',
         td: 'text-white w-1/5 px-6',
-        wrapper: 'bg-gray-800 ',
+        wrapper: 'bg-gray-800',
       }}
     >
       <TableHeader columns={columns}>
