@@ -6,7 +6,6 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  User,
   Input,
 } from "@nextui-org/react";
 
@@ -51,9 +50,7 @@ export default function NextUITable({ columns, rows, tabKey }) {
     <Table
       aria-label="Table with custom cells"
       isHeaderSticky
-      className={`dark bg-gray-800 mx-auto rounded-full ${
-        tabKey === "league" ? "max-w-[880px]" : "max-w-[800px]"
-      }`}
+      className={`dark bg-gray-800 mx-auto rounded-full max-w-[800px]`}
       classNames={{
         base: `py-0 mb-3 mt-3 ${
           tabKey === "league" ? "max-h-[651px]" : "max-h-[687px]"

@@ -3,7 +3,6 @@ import { useState } from "react";
 import NextUITable from "./Table";
 
 export default function NextUITabs({ data }) {
-  console.log(data);
   const [selected, setSelected] = useState("division");
 
   const NationalLeagueTeams = data.league.rows.filter(
@@ -18,7 +17,9 @@ export default function NextUITabs({ data }) {
 
   const renderTableForDivision = (title, teams) => (
     <>
-      <h1 className="text-slate-200 font-bold text-3xl text-center">{title}</h1>
+      <h1 className="text-slate-200 font-bold text-2xl lg:text-3xl text-center">
+        {title}
+      </h1>
       <NextUITable
         columns={data.division.columns}
         rows={teams}
@@ -86,13 +87,11 @@ export default function NextUITabs({ data }) {
         </div>
       </Tab>
 
-      <Tab
-        key="league"
-        title="League"
-        className="flex flex-wrap w-full sm:flex-wrap md:flex-wrap lg:flex-wrap xl:flex-nowrap"
-      >
-        {renderLeagueTable("American League", AmericanLeagueTeams)}
-        {renderLeagueTable("National League", NationalLeagueTeams)}
+      <Tab key="league" title="League">
+        <div className="responsive-grid-container">
+          {renderLeagueTable("American League", AmericanLeagueTeams)}
+          {renderLeagueTable("National League", NationalLeagueTeams)}
+        </div>
       </Tab>
 
       <Tab key="overall" title="Overall">
