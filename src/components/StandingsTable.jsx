@@ -22,15 +22,19 @@ export default function StandingsTable({
       switch (columnKey) {
         case 'name':
           return (
-            <div className="flex w-[210px] mt-2">
+            <div className="flex align-center whitespace-nowrap">
               <img
                 src={team.logo}
                 alt={team.displayName}
                 className="h-11 w-11 rounded-lg bg-slate-200 p-1"
               />
-              <div className="ml-4">
+              <div className="hidden ml-4 sm:block">
                 <p className="text-white text-medium font-bold">{cellValue}</p>
                 <p className="text-slate-200 text-sm">{team.displayName}</p>
+              </div>
+
+              <div className="p-2 sm:hidden">
+                <p className="text-white text-medium font-bold">{team.abbr}</p>
               </div>
             </div>
           );
@@ -65,13 +69,12 @@ export default function StandingsTable({
 
   return (
     <Table
+      isCompact={true}
       aria-label="Table with custom cells"
       isHeaderSticky
-      className={`dark bg-gray-800 mx-auto rounded-full max-w-[800px] `}
+      className={`dark mx-auto  max-w-[700px] `}
       classNames={{
-        base: `py-0 mb-3 mt-3 ${
-          tabKey === 'league' ? 'max-h-[651px]' : 'max-h-[687px]'
-        }`,
+        base: `mb-3 mt-3 ${tabKey === 'league' ? 'max-h-[651px]' : ''}`,
         th: 'text-white font-bold text-medium bg-gray-700 px-6',
         td: 'text-white w-1/5 px-6',
         wrapper: 'bg-gray-800 ',

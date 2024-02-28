@@ -108,10 +108,10 @@ export default function Tabs() {
       }}
     >
       <Tab key="division" title="Division">
-        <div className="responsive-grid-container mt-2">
+        <div className="flex gap-4 flex-col lg:flex-row lg:justify-center">
           {Object.entries(divisions).map(([league, data]) => (
             <section key={league}>
-              <h1 className="text-slate-200 font-bold text-3xl text-center">
+              <h1 className=" text-slate-200 font-bold text-3xl text-center">
                 {data.title}
               </h1>
               {Object.entries(data.divisions).map(([division, teams]) => (
@@ -131,10 +131,11 @@ export default function Tabs() {
           ))}
         </div>
       </Tab>
+
       <Tab key="league" title="League">
-        <div className="responsive-grid-container">
+        <div className="flex flex-col gap-4 justify-center lg:flex-row">
           {Object.entries(leagues).map(([league, data]) => (
-            <section key={league} className="w-full">
+            <section key={league}>
               <h1 className="text-slate-200 font-bold text-3xl text-center">
                 {data.title}
               </h1>

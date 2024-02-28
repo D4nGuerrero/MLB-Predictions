@@ -2,6 +2,7 @@
   {
     "displayName": "Arizona Diamondbacks",
     "name": "Diamondbacks",
+    "abbr": "ARI",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/ari.png",
     "division": "West",
     "league": "NL",
@@ -11,6 +12,7 @@
   {
     "displayName": "Atlanta Braves",
     "name": "Braves",
+    "abbr": "ATL",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/atl.png",
     "division": "East",
     "league": "NL",
@@ -20,6 +22,7 @@
   {
     "displayName": "Baltimore Orioles",
     "name": "Orioles",
+    "abbr": "BAL",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/bal.png",
     "division": "East",
     "league": "AL",
@@ -29,6 +32,7 @@
   {
     "displayName": "Boston Red Sox",
     "name": "Red Sox",
+    "abbr": "BOS",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/bos.png",
     "division": "East",
     "league": "AL",
@@ -38,6 +42,7 @@
   {
     "displayName": "Chicago Cubs",
     "name": "Cubs",
+    "abbr": "CHC",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/chc.png",
     "division": "Central",
     "league": "NL",
@@ -47,6 +52,7 @@
   {
     "displayName": "Chicago White Sox",
     "name": "White Sox",
+    "abbr": "CWS",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/chw.png",
     "division": "Central",
     "league": "AL",
@@ -56,6 +62,7 @@
   {
     "displayName": "Cincinnati Reds",
     "name": "Reds",
+    "abbr": "CIN",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/cin.png",
     "division": "Central",
     "league": "NL",
@@ -65,6 +72,7 @@
   {
     "displayName": "Cleveland Guardians",
     "name": "Guardians",
+    "abbr": "CLE",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/cle.png",
     "division": "Central",
     "league": "AL",
@@ -74,6 +82,7 @@
   {
     "displayName": "Colorado Rockies",
     "name": "Rockies",
+    "abbr": "COL",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/col.png",
     "division": "West",
     "league": "NL",
@@ -83,6 +92,7 @@
   {
     "displayName": "Detroit Tigers",
     "name": "Tigers",
+    "abbr": "DET",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/det.png",
     "division": "Central",
     "league": "AL",
@@ -92,6 +102,7 @@
   {
     "displayName": "Houston Astros",
     "name": "Astros",
+    "abbr": "HOU",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/hou.png",
     "division": "West",
     "league": "AL",
@@ -101,6 +112,7 @@
   {
     "displayName": "Kansas City Royals",
     "name": "Royals",
+    "abbr": "KC",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/kc.png",
     "division": "Central",
     "league": "AL",
@@ -110,6 +122,7 @@
   {
     "displayName": "Los Angeles Angels",
     "name": "Angels",
+    "abbr": "LAA",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/laa.png",
     "division": "West",
     "league": "AL",
@@ -119,6 +132,7 @@
   {
     "displayName": "Los Angeles Dodgers",
     "name": "Dodgers",
+    "abbr": "LAD",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/lad.png",
     "division": "West",
     "league": "NL",
@@ -128,6 +142,7 @@
   {
     "displayName": "Miami Marlins",
     "name": "Marlins",
+    "abbr": "MIA",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/mia.png",
     "division": "East",
     "league": "NL",
@@ -137,6 +152,7 @@
   {
     "displayName": "Milwaukee Brewers",
     "name": "Brewers",
+    "abbr": "MIL",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/mil.png",
     "division": "Central",
     "league": "NL",
@@ -146,6 +162,7 @@
   {
     "displayName": "Minnesota Twins",
     "name": "Twins",
+    "abbr": "MIN",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/min.png",
     "division": "Central",
     "league": "AL",
@@ -155,6 +172,7 @@
   {
     "displayName": "New York Mets",
     "name": "Mets",
+    "abbr": "NYM",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/nym.png",
     "division": "East",
     "league": "NL",
@@ -164,6 +182,7 @@
   {
     "displayName": "New York Yankees",
     "name": "Yankees",
+    "abbr": "NYY",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/nyy.png",
     "division": "East",
     "league": "AL",
@@ -173,6 +192,7 @@
   {
     "displayName": "Oakland Athletics",
     "name": "Athletics",
+    "abbr": "OAK",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/oak.png",
     "division": "West",
     "league": "AL",
@@ -182,6 +202,7 @@
   {
     "displayName": "Philadelphia Phillies",
     "name": "Phillies",
+    "abbr": "PHI",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/phi.png",
     "division": "East",
     "league": "NL",
@@ -191,6 +212,7 @@
   {
     "displayName": "Pittsburgh Pirates",
     "name": "Pirates",
+    "abbr": "PIT",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/pit.png",
     "division": "Central",
     "league": "NL",
@@ -200,6 +222,7 @@
   {
     "displayName": "San Diego Padres",
     "name": "Padres",
+    "abbr": "SD",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/sd.png",
     "division": "West",
     "league": "NL",
@@ -209,6 +232,7 @@
   {
     "displayName": "San Francisco Giants",
     "name": "Giants",
+    "abbr": "SF",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/sf.png",
     "division": "West",
     "league": "NL",
@@ -218,6 +242,7 @@
   {
     "displayName": "Seattle Mariners",
     "name": "Mariners",
+    "abbr": "SEA",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/sea.png",
     "division": "West",
     "league": "AL",
@@ -227,6 +252,7 @@
   {
     "displayName": "St. Louis Cardinals",
     "name": "Cardinals",
+    "abbr": "STL",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/stl.png",
     "division": "Central",
     "league": "NL",
@@ -236,6 +262,7 @@
   {
     "displayName": "Tampa Bay Rays",
     "name": "Rays",
+    "abbr": "TB",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/tb.png",
     "division": "East",
     "league": "AL",
@@ -245,6 +272,7 @@
   {
     "displayName": "Texas Rangers",
     "name": "Rangers",
+    "abbr": "TEX",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/tex.png",
     "division": "West",
     "league": "AL",
@@ -254,6 +282,7 @@
   {
     "displayName": "Toronto Blue Jays",
     "name": "Blue Jays",
+    "abbr": "TOR",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/tor.png",
     "division": "East",
     "league": "AL",
@@ -263,6 +292,7 @@
   {
     "displayName": "Washington Nationals",
     "name": "Nationals",
+    "abbr": "WSH",
     "logo": "https://a.espncdn.com/i/teamlogos/mlb/500/was.png",
     "division": "East",
     "league": "NL",
