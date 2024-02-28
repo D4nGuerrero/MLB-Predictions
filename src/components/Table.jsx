@@ -12,7 +12,6 @@ import {
 
 export default function NextUITable({ columns, rows, tabKey }) {
   const renderCell = useCallback((user, columnKey) => {
-    console.log(user);
     const cellValue = user[columnKey];
 
     switch (columnKey) {

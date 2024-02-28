@@ -3,14 +3,39 @@ import { useState } from "react";
 import NextUITable from "./Table";
 
 export default function NextUITabs({ data }) {
-  const [selected, setSelected] = useState("overall");
+  console.log(data);
+  const [selected, setSelected] = useState("division");
 
   const NationalLeagueTeams = data.league.rows.filter(
     (team) => team.league === "NL"
   );
-
   const AmericanLeagueTeams = data.league.rows.filter(
     (team) => team.league === "AL"
+  );
+
+  const divisionFilter = (teams, division) =>
+    teams.filter((team) => team.division === division);
+
+  const renderTableForDivision = (title, teams) => (
+    <>
+      <h1 className="text-slate-200 font-bold text-3xl text-center">{title}</h1>
+      <NextUITable
+        columns={data.division.columns}
+        rows={teams}
+        tabKey={"division"}
+      />
+    </>
+  );
+
+  const renderLeagueTable = (title, teams) => (
+    <div className="w-full">
+      <h1 className="text-slate-200 font-bold text-3xl text-center">{title}</h1>
+      <NextUITable
+        columns={data.league.columns}
+        rows={teams}
+        tabKey={"league"}
+      />
+    </div>
   );
 
   return (
@@ -28,41 +53,48 @@ export default function NextUITabs({ data }) {
       }}
     >
       <Tab key="division" title="Division">
-        <NextUITable
-          columns={data.division.columns}
-          rows={data.division.rows}
-          tabKey={"division"}
-        />
+        <div className="responsive-grid-container mt-2">
+          <section>
+            {renderTableForDivision(
+              "National League East",
+              divisionFilter(NationalLeagueTeams, "East")
+            )}
+            {renderTableForDivision(
+              "National League Central",
+              divisionFilter(NationalLeagueTeams, "Central")
+            )}
+            {renderTableForDivision(
+              "National League West",
+              divisionFilter(NationalLeagueTeams, "West")
+            )}
+          </section>
+
+          <section>
+            {renderTableForDivision(
+              "American League East",
+              divisionFilter(AmericanLeagueTeams, "East")
+            )}
+            {renderTableForDivision(
+              "American League Central",
+              divisionFilter(AmericanLeagueTeams, "Central")
+            )}
+            {renderTableForDivision(
+              "American League West",
+              divisionFilter(AmericanLeagueTeams, "West")
+            )}
+          </section>
+        </div>
       </Tab>
+
       <Tab
         key="league"
         title="League"
         className="flex flex-wrap w-full sm:flex-wrap md:flex-wrap lg:flex-wrap xl:flex-nowrap"
       >
-        <div className="w-full">
-          <h1 className="text-slate-200 font-bold text-3xl text-center">
-            American League
-          </h1>
-
-          <NextUITable
-            columns={data.league.columns}
-            rows={AmericanLeagueTeams}
-            tabKey={"league"}
-          />
-        </div>
-
-        <div className="w-full">
-          <h1 className="text-slate-200 font-bold text-3xl text-center">
-            National League
-          </h1>
-
-          <NextUITable
-            columns={data.league.columns}
-            rows={NationalLeagueTeams}
-            tabKey={"league"}
-          />
-        </div>
+        {renderLeagueTable("American League", AmericanLeagueTeams)}
+        {renderLeagueTable("National League", NationalLeagueTeams)}
       </Tab>
+
       <Tab key="overall" title="Overall">
         <NextUITable
           columns={data.overall.columns}
