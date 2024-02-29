@@ -1,23 +1,23 @@
-import { Tabs as NextUITabs, Tab } from '@nextui-org/react';
-import { useState } from 'react';
-import StandingsTable from './StandingsTable';
-import teams2 from '../teams.json';
+import { Tabs as NextUITabs, Tab } from "@nextui-org/react";
+import { useState } from "react";
+import StandingsTable from "./StandingsTable";
+import teams2 from "../teams.json";
 
 export default function Tabs() {
-  const [selected, setSelected] = useState('divisions');
+  const [selected, setSelected] = useState("divisions");
   const [teams, setTeams] = useState(teams2);
 
   const columns = [
-    { name: 'Team', uid: 'name' },
-    { name: 'Wins', uid: 'custom' },
-    { name: 'Losses', uid: 'losses' },
-    { name: 'PCT', uid: 'pct' },
-    { name: 'GB', uid: 'gb' },
+    { name: "Team", uid: "name" },
+    { name: "Wins", uid: "custom" },
+    { name: "Losses", uid: "losses" },
+    { name: "PCT", uid: "pct" },
+    { name: "GB", uid: "gb" },
   ];
 
   const divisions = {
     AL: {
-      title: 'American League',
+      title: "American League",
       divisions: {
         East: [],
         Central: [],
@@ -25,7 +25,7 @@ export default function Tabs() {
       },
     },
     NL: {
-      title: 'National League',
+      title: "National League",
       divisions: {
         East: [],
         Central: [],
@@ -36,11 +36,11 @@ export default function Tabs() {
 
   const leagues = {
     AL: {
-      title: 'American League',
+      title: "American League",
       teams: [],
     },
     NL: {
-      title: 'National League',
+      title: "National League",
       teams: [],
     },
   };
@@ -62,7 +62,7 @@ export default function Tabs() {
   const totalGames = gamesPerTeam * 15;
   let winsAvailable = totalGames - totalWins;
 
-  console.log('hmm', winsAvailable);
+  // console.log("hmm", winsAvailable);
 
   function handleInputChange(value, team) {
     // console.log('aver', value, team);
@@ -72,7 +72,7 @@ export default function Tabs() {
     // 3. account for empty string
 
     winsAvailable += team.wins;
-    console.log('hmm2', winsAvailable);
+    // console.log('hmm2', winsAvailable);
 
     let winsValue =
       value > winsAvailable || value > gamesPerTeam
@@ -102,9 +102,9 @@ export default function Tabs() {
       color="primary"
       className="flex justify-center"
       classNames={{
-        tabContent: 'text-medium text-white',
-        tabList: 'bg-gray-800',
-        tab: 'px-4',
+        tabContent: "text-medium text-white",
+        tabList: "bg-gray-800",
+        tab: "px-4",
       }}
     >
       <Tab key="division" title="Division">
@@ -122,7 +122,7 @@ export default function Tabs() {
                   <StandingsTable
                     columns={columns}
                     rows={teams}
-                    tabKey={'division'}
+                    tabKey={"division"}
                     onInputChange={handleInputChange}
                   />
                 </div>
@@ -142,7 +142,7 @@ export default function Tabs() {
               <StandingsTable
                 columns={columns}
                 rows={data.teams}
-                tabKey={'league'}
+                tabKey={"league"}
                 onInputChange={handleInputChange}
               />
             </section>
@@ -153,7 +153,7 @@ export default function Tabs() {
         <StandingsTable
           columns={columns}
           rows={teamsByWins}
-          tabKey={'overall'}
+          tabKey={"overall"}
           onInputChange={handleInputChange}
         />
       </Tab>

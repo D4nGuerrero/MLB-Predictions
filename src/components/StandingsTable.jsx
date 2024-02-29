@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback } from "react";
 import {
   Table,
   TableHeader,
@@ -7,7 +7,7 @@ import {
   TableRow,
   TableCell,
   Input,
-} from '@nextui-org/react';
+} from "@nextui-org/react";
 
 export default function StandingsTable({
   columns,
@@ -15,12 +15,35 @@ export default function StandingsTable({
   tabKey,
   onInputChange,
 }) {
+  const handleKeyDown = useCallback(
+    (event, team, columnKey) => {
+      if (event.key === "Tab") {
+        // Obtener el índice de la columna actual
+        const currentColumnIndex = columns.findIndex(
+          (col) => col.uid === columnKey
+        );
+
+        // Obtener el índice de la próxima columna
+        const nextColumnIndex = (currentColumnIndex + 1) % columns.length;
+
+        // Enfocar en el siguiente Input
+        const nextColumnKey = columns[nextColumnIndex].uid;
+        const nextInputId = `${team.name}-${nextColumnKey}`;
+        const nextInputElement = document.getElementById(nextInputId);
+        if (nextInputElement) {
+          nextInputElement.focus();
+        }
+      }
+    },
+    [columns]
+  );
+
   const renderCell = useCallback(
     (team, columnKey) => {
       const cellValue = team[columnKey];
 
       switch (columnKey) {
-        case 'name':
+        case "name":
           return (
             <div className="flex align-center whitespace-nowrap">
               <img
@@ -39,51 +62,53 @@ export default function StandingsTable({
             </div>
           );
 
-        case 'custom':
+        case "custom":
           return (
             <Input
               variant="bordered"
               type="text"
               classNames={{
-                inputWrapper: 'bg-gray-700',
+                inputWrapper: "bg-gray-700",
                 input:
-                  'text-white font-bold text-medium text-center min-w-[30px]',
+                  "text-white font-bold text-medium text-center min-w-[30px]",
               }}
               value={team.wins}
               onValueChange={(value) => onInputChange(value, team)}
+              id={`${team.name}-${columnKey}`}
+              onKeyDown={(event) => handleKeyDown(event, team, columnKey)}
             />
           );
-        case 'pct':
+        case "pct":
           return (team.wins / 162).toFixed(3);
-        case 'gb':
+        case "gb":
           return team.name === rows[0].name
-            ? '-'
+            ? "-"
             : (rows[0].wins - rows[0].losses - (team.wins - team.losses)) / 2;
 
         default:
           return cellValue;
       }
     },
-    [rows]
+    [handleKeyDown, onInputChange, rows]
   );
 
   return (
     <Table
-      isCompact={true}
+      isCompact
       aria-label="Table with custom cells"
       isHeaderSticky
-      className={`dark mx-auto  max-w-[700px] `}
+      className={`dark mx-auto max-w-[700px]`}
       classNames={{
-        base: `mb-3 mt-3 ${tabKey === 'league' ? 'max-h-[651px]' : ''}`,
-        th: 'text-white font-bold text-medium bg-gray-700 px-6',
-        td: 'text-white w-1/5 px-6',
-        wrapper: 'bg-gray-800 ',
+        base: `mb-3 mt-3 ${tabKey === "league" ? "max-h-[651px]" : ""}`,
+        th: "text-white font-bold text-medium bg-gray-700 px-6",
+        td: "text-white w-1/5 px-6",
+        wrapper: "bg-gray-800",
       }}
     >
       <TableHeader columns={columns}>
         {(column) => <TableColumn key={column.uid}>{column.name}</TableColumn>}
       </TableHeader>
-      <TableBody items={rows} emptyContent={'No data found'}>
+      <TableBody items={rows} emptyContent={"No data found"}>
         {rows.map((team) => (
           <TableRow key={team.name}>
             {columns.map((column) => (

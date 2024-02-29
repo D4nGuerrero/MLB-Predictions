@@ -1,5 +1,4 @@
-import Tabs from './components/Tabs';
-import teams from './teams.json';
+import Tabs from "./components/Tabs";
 
 function App() {
   return (
